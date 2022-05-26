@@ -26,7 +26,7 @@ class TD3Config:
 		self.gamma = 0.99 # gamma factor
 		self.lr = 0.0005 # Target network update rate 
 		self.policy_noise = 0.2 # Noise added to target policy during critic update
-		self.train_eps = 600
+		self.train_eps = 800
 		self.test_eps = 10
 		self.noise_clip = 0.2  # Range to clip target policy noise
 		self.policy_freq = 2 # Frequency of delayed policy updates
