@@ -157,6 +157,7 @@ class TD3(object):
 
 			for param, target_param in zip(self.actor.parameters(), self.actor_target.parameters()):
 				target_param.data.copy_(self.lr * param.data + (1 - self.lr) * target_param.data)
+			# return self.total_it,critic_loss,actor_loss
 
 
 	def save(self, path):

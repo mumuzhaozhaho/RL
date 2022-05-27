@@ -19,13 +19,13 @@ class TD3Config:
 		self.algo = 'TD3'
 
 		self.env = 'Tank_env-v1'
-		self.start_timestep = 10e3 # Time steps initial random policy is used
+		self.start_timestep = 20e3 # Time steps initial random policy is used
 		self.max_timestep = 400000 # Max time steps to run environment
 		self.expl_noise = 0.1 # Std of Gaussian exploration noise
 		self.batch_size = 256 # Batch size for both actor and critic
-		self.gamma = 0.99 # gamma factor
+		self.gamma = 0.9 # gamma factor
 		self.lr = 0.0005 # Target network update rate 
-		self.policy_noise = 0.2 # Noise added to target policy during critic update
+		self.policy_noise = 0.1 # Noise added to target policy during critic update
 		self.train_eps = 800
 		self.test_eps = 10
 		self.noise_clip = 0.2  # Range to clip target policy noise
@@ -140,9 +140,9 @@ if __name__ == "__main__":
     '''
     训练
     '''
-    agent.load(path1)
-    agent.actor_target.load_state_dict(torch.load(path1 + "td3_actor"))
-    agent.critic_target.load_state_dict(torch.load(path1 + "td3_critic"))
+    # agent.load(path1)
+    # agent.actor_target.load_state_dict(torch.load(path1 + "td3_actor"))
+    # agent.critic_target.load_state_dict(torch.load(path1 + "td3_critic"))
     rewards, ma_rewards = train(cfg, env, agent)
     agent.save(path1)
     print('')
